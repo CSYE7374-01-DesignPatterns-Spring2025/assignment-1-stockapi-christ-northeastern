@@ -24,21 +24,23 @@ public class StockAPI {
         Stock tesla = Tesla.getInstance();
         Stock amazon = Amazon.getInstance();
 
-        // Simulate 6 bids for Tesla
+        // Simulate 6 bids for Tesla and display each bid
         System.out.println("Tesla Stock:");
         System.out.println("Initial Metric: " + tesla.getMetric());
         for (int i = 0; i < 6; i++) {
             String bid = String.valueOf(tesla.getPrice() + 10);  // Simulate bid increment for Tesla
             tesla.setBid(bid);
+            System.out.println("Tesla bid set to: " + bid);
         }
         System.out.println("Tesla Final Metric after 6 bids: " + tesla.getMetric());
 
-        // Simulate 6 bids for Amazon
+        // Simulate 6 bids for Amazon and display each bid
         System.out.println("\nAmazon Stock:");
         System.out.println("Initial Metric: " + amazon.getMetric());
         for (int i = 0; i < 6; i++) {
             String bid = String.valueOf(amazon.getPrice() + 10);  // Simulate bid increment for Amazon
             amazon.setBid(bid);
+            System.out.println("Amazon bid set to: " + bid);
         }
         System.out.println("Amazon Final Metric after 6 bids: " + amazon.getMetric());
 

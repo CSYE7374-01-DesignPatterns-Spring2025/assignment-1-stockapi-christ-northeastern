@@ -1,5 +1,10 @@
 package edu.neu.csye7374;
 
+/**
+ *
+ * @author christrodrigues
+ */
+
 public abstract class Stock implements Tradable {
     private String id;
     private double price;
