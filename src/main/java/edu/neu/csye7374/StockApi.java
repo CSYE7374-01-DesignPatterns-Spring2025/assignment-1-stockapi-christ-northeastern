@@ -1,35 +1,34 @@
-package edu.neu.csye7374.stockApi;
+package edu.neu.csye7374;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class StockMarket {
+public class StockAPI {
 
-    // Singleton instance of StockMarket
-    private static StockMarket instance;
+    private static StockAPI instance;
 
-    // Private constructor to prevent instantiation
-    private StockMarket() {}
+    private StockAPI() {}
 
-    // Public method to get the instance of StockMarket
-    public static StockMarket getInstance() {
+    public static StockAPI getInstance() {
         if (instance == null) {
-            instance = new StockMarket();
+            synchronized (StockAPI.class) {
+                if (instance == null) {
+                    instance = new StockAPI();
+                }
+            }
         }
         return instance;
     }
 
-    // Demo method that simulates bidding for stocks
     public void demo() {
-        // Create stock objects for Tesla and Amazon
-        Stock tesla = new Tesla("TSLA", 800.0, "Tesla Inc. Common Stock");
-        Stock amazon = new Amazon("AMZN", 3000.0, "Amazon Inc. Common Stock");
+        Stock tesla = Tesla.getInstance();
+        Stock amazon = Amazon.getInstance();
 
         // Simulate 6 bids for Tesla
         System.out.println("Tesla Stock:");
         System.out.println("Initial Metric: " + tesla.getMetric());
         for (int i = 0; i < 6; i++) {
-            double bid = tesla.getPrice() + 10;  // Simulate bid increment for Tesla
+            String bid = String.valueOf(tesla.getPrice() + 10);  // Simulate bid increment for Tesla
             tesla.setBid(bid);
         }
         System.out.println("Tesla Final Metric after 6 bids: " + tesla.getMetric());
@@ -38,7 +37,7 @@ public class StockMarket {
         System.out.println("\nAmazon Stock:");
         System.out.println("Initial Metric: " + amazon.getMetric());
         for (int i = 0; i < 6; i++) {
-            double bid = amazon.getPrice() + 10;  // Simulate bid increment for Amazon
+            String bid = String.valueOf(amazon.getPrice() + 10);  // Simulate bid increment for Amazon
             amazon.setBid(bid);
         }
         System.out.println("Amazon Final Metric after 6 bids: " + amazon.getMetric());

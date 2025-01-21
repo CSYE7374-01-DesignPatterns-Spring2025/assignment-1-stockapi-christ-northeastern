@@ -1,4 +1,4 @@
-package edu.neu.csye7374.stockApi;
+package edu.neu.csye7374;
 
 public abstract class Stock implements Tradable {
     private String id;
@@ -44,7 +44,7 @@ public abstract class Stock implements Tradable {
                 '}';
     }
 
-    // Abstract methods to be implemented by subclasses
-    public abstract void setBid(double bid);
+    // Abstract methods for subclasses
+    public abstract void setBid(String bid);
     public abstract int getMetric();
 }

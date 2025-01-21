@@ -1,6 +1,5 @@
 package edu.neu.csye7374;
 
-import edu.neu.csye7374.stockApi.StockMarket;
 
 /**
  *
@@ -14,8 +13,8 @@ public class Driver {
         System.out.println("============Main Execution Start===================\n\n");
 
         //Add your code in between these two print statements
-        StockMarket stockMarket = StockMarket.getInstance();
-        stockMarket.demo();
+       StockAPI stockAPI = StockAPI.getInstance();
+        stockAPI.demo();
 
         System.out.println("\n\n============Main Execution End===================");
     }
